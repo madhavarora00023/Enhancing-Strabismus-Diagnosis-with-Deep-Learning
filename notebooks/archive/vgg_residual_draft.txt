@@ -1,0 +1,53 @@
+!pip install tensorflow
+
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from tensorflow.keras.preprocessing.image import img_to_array, load_img
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from google.colab import files
+import os
+
+
+uploaded = files.upload()
+
+#  Load and preprocess the image
+image_path = next(iter(uploaded))  # Get the uploaded file name
+img = load_img(image_path)  # Load the image
+img_array = img_to_array(img)  # Convert image to numpy array
+img_array = img_array.reshape((1,) + img_array.shape)  # Reshape it for augmentation
+
+#  Create the ImageDataGenerator for horizontal flip
+datagen = ImageDataGenerator(horizontal_flip=True,)
+
+#  Generate and save the flipped image
+i = 0
+for batch in datagen.flow(img_array, batch_size=1, save_to_dir='/content', save_prefix='flip', save_format='jpeg'):
+    i += 1
+    if i > 0:  # Generate 1 flipped image
+        break
+
+#  List all files in '/content' to find the flipped image
+saved_files = os.listdir('/content')
+print("Saved files:", saved_files)
+
+#  Display the original and flipped images
+plt.figure(figsize=(6, 6))
+
+# Display the original image
+plt.subplot(1, 2, 1)
+plt.imshow(img)
+plt.title("Original Image")
+plt.axis('off')
+
+# Find the flipped image and display it
+for filename in saved_files:
+    if filename.startswith('flip'):
+        flipped_img_path = '/content/' + filename
+        flipped_img = load_img(flipped_img_path)
+        plt.subplot(1, 2, 2)
+        plt.imshow(flipped_img)
+        plt.title("Flipped Image")
+        plt.axis('off')
+        break
+
+plt.show()

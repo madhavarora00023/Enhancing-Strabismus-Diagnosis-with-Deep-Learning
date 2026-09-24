@@ -1,0 +1,49 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Packaging
+*.egg-info/
+build/
+dist/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+
+# Node (in case a demo UI is added later)
+node_modules/
+
+# Model artifacts
+*.h5
+*.keras
+*.pt
+*.pth
+checkpoints/
+
+# Project-specific: personal study notes, not public docs
+prep/
+
+# Project-specific: dataset is not published (size + unconfirmed image redistribution rights)
+# see data/README.md for how to obtain/regenerate it
+data/*
+!data/README.md
+
+# Project-specific: literature review spreadsheet has informal working notes mixed in
+paper/literature_review.xlsx

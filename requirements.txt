@@ -1,0 +1,12 @@
+# Inferred from notebook imports — no environment file or `pip freeze` output
+# survived from the original project, so exact patch versions beyond
+# tensorflow (confirmed via a printed `tf.__version__`) are not guaranteed.
+tensorflow==2.10.0
+tensorflow-addons
+opencv-python
+albumentations
+scikit-learn
+matplotlib
+seaborn
+numpy
+pandas

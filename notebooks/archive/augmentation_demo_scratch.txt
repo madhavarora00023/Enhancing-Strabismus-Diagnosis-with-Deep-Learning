@@ -1,0 +1,94 @@
+from google.colab import drive
+import os
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+dataset_path = '/content/drive/My Drive/Denoised'
+IMG_SIZE = (224, 224)
+BATCH_SIZE = 32
+
+datagen = ImageDataGenerator(rescale=1./255, validation_split=0.30)  # 30% for validation + test
+
+train_generator = datagen.flow_from_directory(
+    dataset_path,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='training'
+)
+
+val_test_datagen = ImageDataGenerator(rescale=1./255, validation_split=0.50)  # Split val & test
+
+val_generator = val_test_datagen.flow_from_directory(
+    dataset_path,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='training'
+)
+
+test_generator = val_test_datagen.flow_from_directory(
+    dataset_path,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='validation'
+)
+print(train_generator.class_indices)
+
+
+
+from tensorflow.keras.layers import Conv2D, BatchNormalization, ReLU, Add
+
+def VGBlock(x, filters):
+    shortcut = x  # Save input for residual connection
+
+    x = Conv2D(filters, (3,3), padding='same', activation=None)(x)
+    x = BatchNormalization()(x)
+    x = ReLU()(x)
+
+    x = Conv2D(filters, (3,3), padding='same', activation=None)(x)
+    x = BatchNormalization()(x)
+
+    # Residual Connection
+    x = Add()([x, shortcut])
+    x = ReLU()(x)
+    
+    return x
+
+
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense, Flatten, MaxPooling2D, Conv2D
+
+def build_VGNet(input_shape, num_classes):
+    inputs = Input(shape=input_shape)
+    x = Conv2D(64, (3,3), padding='same', activation='relu')(inputs)
+    x = MaxPooling2D(pool_size=(2,2))(x)  # First pooling
+
+    # Adding 7 VGBlocks but pooling only every 2 blocks
+    for i in range(7):
+        x = VGBlock(x, 64)
+        if i % 2 == 0:  # Pool only every 2 blocks to prevent excessive downsampling
+            x = MaxPooling2D(pool_size=(2,2))(x)
+
+    x = Flatten()(x)
+    x = Dense(128, activation='relu')(x)
+    outputs = Dense(num_classes, activation='softmax')(x)
+
+    model = Model(inputs=inputs, outputs=outputs)
+    return model
+
+# Get class count
+num_classes = train_generator.num_classes
+
+# Build model
+model = build_VGNet((224, 224, 3), num_classes)
+
+# Compile model
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+history = model.fit(
+    train_generator,
+    validation_data=val_generator,
+    epochs=30
+)

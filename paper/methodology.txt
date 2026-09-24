@@ -1,0 +1,100 @@
+Methodology:-
+
+Our suggested deep learning-oriented framework for quantitative strabismus diagnosis focuses on classification functionalities, providing an advanced diagnostic tool for ophthalmologists. The process includes the following:
+
+1. EfficientNetB7-based classification to achieve the highest accuracy in strabismus detection.
+2. ResNet50, VGG19, and AlexNet for additional classification comparisons and performance evaluation.
+
+By integrating multiple classification models, this approach enhances diagnostic precision and ensures robust performance in real-world clinical applications.
+
+
+## A. Data Collection
+
+The dataset for this study was sourced from publicly available open-source platforms, including Kaggle, GitHub, and other online repositories. The collected images were manually classified into five categories: esotropia, exotropia, hypertropia, hypotropia, and normal alignment. This ensured a high-quality dataset suitable for training and evaluation of the classification models.
+
+## B. B. Data Preprocessing
+
+To standardize the dataset and optimize model performance, several preprocessing steps were applied to ensure consistency, enhance feature extraction, and improve training efficiency.
+
+Auto-orientation: Image alignment was automatically corrected to maintain uniform orientation across the dataset, mitigating variations caused by camera positioning or subject posture.
+
+Resizing: All images were resized to 227×227 pixels to match the input size requirements of the models. This step ensured uniformity while preserving essential visual features necessary for accurate classification.
+
+Denoising: To enhance image clarity and reduce artifacts, a denoising process was applied, further refining the dataset for improved classification accuracy.
+
+##C. Data Augmentation
+To improve generalization and reduce overfitting, the dataset underwent a thorough augmentation procedure utilizing a range of transformation methods. These augmentations introduced managed variations in the data, guaranteeing that the
+model acquired strong and generalizable attributes instead of
+just recalling particular patterns. The implemented augmentation strategies comprised.
+
+1) Flipping: On applying horizontal mirroring on images, variations in left and right gaze were accounted for, which resulted in different facial orientations, especially in gaze estimation tasks.
+
+2) Brightness: Brightness levels between -20% and 20% were modified to enhance robustness against varying lighting conditions. This prevented biasing in the model towards particular illumination levels and improved its performance in various
+environments.
+
+3) Contrast Adjustment: Contrast levels were adjusted between -20% and 20% to enhance the model's robustness against varying lighting conditions. This prevented the model from becoming biased toward specific contrast levels and improved its ability to generalize across diverse environments. Additionally, contrast adjustment helped balance feature visibility, ensuring that important details remained detectable in both high- and low-contrast settings. 
+
+4) Grayscale Conversion: A portion of the images was converted to grayscale to enhance the model's robustness against color variations. This prevented the model from overly relying on color-based features and instead encouraged it to focus on structural and texture-based patterns, improving generalization.
+
+##D. Splitting
+The preprocessed and augmented dataset was divided into training, validation, and test sets with a 70:15:15 split to maintain a robust evaluation framework.
+
+##E Classification
+A total of four deep-learning models were utilized to properly categorise different forms of strabismus. All models were pre-trained on large-scale image datasets to leverage their learned feature representations.
+
+A) AlexNet
+For the initial course of time, the AlexNet-based model was used to understand feature extraction and model-working. The model used DepthwiseConv2D and featured functions for Adaptive learning rate and early stopping. It also used Mixed Precision Training, AdamW, and Mixed Precision Training. 
+
+B) VGGNet19
+After AlexNet, a VGGNet19 model was trained and used for classification. This model features extensive features like Flatten, Batch-Normalisation, Dropout, and further fine-tuning of connected layers. It incorporated initially frozen and then gradually unfroze layers retaining the model's knowledge of feature extraction.
+
+C) ResNet50
+After the VGG19 model, a ResNet50 model was used to first analyze and then classify the images into respective classes of strabismus. The base model consisted of a pre-trained ResNet50 model with the last 75 players unfrozen for feature learning from the test data. It also had Conv2d, Global Average Pooling, Functions like Dropout, Layer Normalisation, and SoftMax, and fully connected layers with ReLU activation
+This model performed well but had some drawbacks which were then fulfilled with the EfficientNet model. 
+
+D)EfficientNetB7
+The final model used for multi-class classification was EfficientNetB7, which was also the best performing. It also used functions like Conv2D, Global Average Pooling, WeightDecay and learning rate optimiser. The last 30 layers were unfrozen for learning.
+
+
+##Evaluation Metrics
+In this section, we have calculated the parameters which
+are used to analyze the performance of the classification based
+models . The following metrics are commonly used to evaluate
+the performance of classification models:
+
+1) Accuracy:
+Accuracy = T P + T N
+T P + T N + F P + F N
+where:
+• T P is True-Positives i.e.Number of correct predictions of
+the positive class.
+• T N is True-Negatives i.e.Number of correct predictions
+of the negative class.
+• F P is False-Positives i.e.Number of incorrect predictions
+of the positive class.
+
+F N is False-Negatives i.e.Number of incorrect predic-
+tions of the negative class.
+
+2) Precision:
+Precision = T P
+T P + F P
+where:
+• T P is True-Positives i.e. Number of correct predictionsof the positive class.
+• F P is False-Positives i.e. Number of incorrect predictionsof the positive class.
+
+3) Recall (or Sensitivity):
+Recall = T P
+T P + F N
+where:
+• T P is True-Positives i.e. Number of correct predictionsof the positive class.
+• F N is False-Negatives i.e. Number of incorrect predic-tions of the negative class.
+
+4) F1 Score:
+F 1 = 2 · Precision · Recall
+Precision + Recall
+where:
+• Precision = T P
+T P +F P
+• Recall = T P
+T P +F N

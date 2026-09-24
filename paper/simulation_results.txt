@@ -1,0 +1,19 @@
+Simulation Results
+
+In this study,the classification of strabismus was focused
+using deep learning. The proposed models successfully per-
+formed the multiclass classification using different Neural-Network Models achieving high accuracy as shown in Table.I in detecting and classifying different types of strabismus which are represented
+in confusion matrices as shown in Fig. 1, and 2.
+These confusion matrices typically give us a close analysis
+of models' performance and key performance metrics such
+as accuracy, precision,recall, and F1-score were computed.The
+simulation results define the efficacy of using deep learning
+models for strabismus classification, demonstrating promising
+clinical applicability.
+Further, the average angle of deviation varies across the
+five classes, with values, progressively increasing from nor-
+mal (5.05) to exotropia (8.49), esotropia (10.64), hypotropia
+(14.29), and hypertropia (20.52). This trend suggests that
+angular deviation serves as a reliable parameter for assessing
+strabismus severity, with higher values corresponding to more
+pronounced ocular misalignment.
