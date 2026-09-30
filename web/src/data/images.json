@@ -1,0 +1,866 @@
+{
+ "samples": {
+  "ESOTROPIA": [
+   {
+    "src": "/images/samples/esotropia/1.jpg",
+    "width": 477,
+    "height": 133
+   },
+   {
+    "src": "/images/samples/esotropia/2.jpg",
+    "width": 709,
+    "height": 178
+   },
+   {
+    "src": "/images/samples/esotropia/3.jpg",
+    "width": 1159,
+    "height": 235
+   },
+   {
+    "src": "/images/samples/esotropia/4.jpg",
+    "width": 855,
+    "height": 235
+   },
+   {
+    "src": "/images/samples/esotropia/5.jpg",
+    "width": 325,
+    "height": 155
+   },
+   {
+    "src": "/images/samples/esotropia/6.jpg",
+    "width": 275,
+    "height": 119
+   }
+  ],
+  "EXOTROPIA": [
+   {
+    "src": "/images/samples/exotropia/1.jpg",
+    "width": 706,
+    "height": 199
+   },
+   {
+    "src": "/images/samples/exotropia/2.jpg",
+    "width": 474,
+    "height": 118
+   },
+   {
+    "src": "/images/samples/exotropia/3.jpg",
+    "width": 1276,
+    "height": 318
+   },
+   {
+    "src": "/images/samples/exotropia/4.jpg",
+    "width": 573,
+    "height": 160
+   },
+   {
+    "src": "/images/samples/exotropia/5.jpg",
+    "width": 856,
+    "height": 184
+   },
+   {
+    "src": "/images/samples/exotropia/6.jpg",
+    "width": 1231,
+    "height": 235
+   }
+  ],
+  "HYPERTROPIA": [
+   {
+    "src": "/images/samples/hypertropia/1.jpg",
+    "width": 828,
+    "height": 169
+   },
+   {
+    "src": "/images/samples/hypertropia/2.jpg",
+    "width": 475,
+    "height": 163
+   },
+   {
+    "src": "/images/samples/hypertropia/3.jpg",
+    "width": 507,
+    "height": 151
+   },
+   {
+    "src": "/images/samples/hypertropia/4.jpg",
+    "width": 513,
+    "height": 148
+   },
+   {
+    "src": "/images/samples/hypertropia/5.jpg",
+    "width": 577,
+    "height": 184
+   },
+   {
+    "src": "/images/samples/hypertropia/6.jpg",
+    "width": 597,
+    "height": 166
+   }
+  ],
+  "HYPOTROPIA": [
+   {
+    "src": "/images/samples/hypotropia/1.jpg",
+    "width": 697,
+    "height": 180
+   },
+   {
+    "src": "/images/samples/hypotropia/2.jpg",
+    "width": 679,
+    "height": 166
+   },
+   {
+    "src": "/images/samples/hypotropia/3.jpg",
+    "width": 421,
+    "height": 154
+   },
+   {
+    "src": "/images/samples/hypotropia/4.jpg",
+    "width": 445,
+    "height": 144
+   },
+   {
+    "src": "/images/samples/hypotropia/5.jpg",
+    "width": 433,
+    "height": 168
+   },
+   {
+    "src": "/images/samples/hypotropia/6.jpg",
+    "width": 697,
+    "height": 163
+   }
+  ],
+  "NORMAL": [
+   {
+    "src": "/images/samples/normal/1.jpg",
+    "width": 661,
+    "height": 148
+   },
+   {
+    "src": "/images/samples/normal/2.jpg",
+    "width": 709,
+    "height": 178
+   },
+   {
+    "src": "/images/samples/normal/3.jpg",
+    "width": 508,
+    "height": 97
+   },
+   {
+    "src": "/images/samples/normal/4.jpg",
+    "width": 316,
+    "height": 121
+   },
+   {
+    "src": "/images/samples/normal/5.jpg",
+    "width": 682,
+    "height": 184
+   },
+   {
+    "src": "/images/samples/normal/6.jpg",
+    "width": 571,
+    "height": 154
+   }
+  ]
+ },
+ "thread": {
+  "cls": "ESOTROPIA",
+  "raw": {
+   "src": "/images/thread/raw.jpg",
+   "width": 477,
+   "height": 133
+  },
+  "denoised": {
+   "src": "/images/thread/denoised.jpg",
+   "width": 640,
+   "height": 178
+  },
+  "augmented": [
+   {
+    "variant": "brightness_1",
+    "src": "/images/thread/1_brightness_1.jpg"
+   },
+   {
+    "variant": "brightness_2",
+    "src": "/images/thread/1_brightness_2.jpg"
+   },
+   {
+    "variant": "contrast_1",
+    "src": "/images/thread/1_contrast_1.jpg"
+   },
+   {
+    "variant": "contrast_2",
+    "src": "/images/thread/1_contrast_2.jpg"
+   },
+   {
+    "variant": "flipped",
+    "src": "/images/thread/1_flipped.jpg"
+   },
+   {
+    "variant": "flipped_brightness",
+    "src": "/images/thread/1_flipped_brightness.jpg"
+   },
+   {
+    "variant": "flipped_contrast",
+    "src": "/images/thread/1_flipped_contrast.jpg"
+   },
+   {
+    "variant": "flipped_grayscale",
+    "src": "/images/thread/1_flipped_grayscale.jpg"
+   },
+   {
+    "variant": "grayscale",
+    "src": "/images/thread/1_grayscale.jpg"
+   },
+   {
+    "variant": "original",
+    "src": "/images/thread/1_original.jpg"
+   }
+  ]
+ },
+ "denoise": [
+  {
+   "cls": "ESOTROPIA",
+   "raw": {
+    "src": "/images/denoise/esotropia-1-raw.jpg",
+    "width": 477,
+    "height": 133
+   },
+   "denoised": {
+    "src": "/images/denoise/esotropia-1-denoised.jpg",
+    "width": 640,
+    "height": 178
+   }
+  },
+  {
+   "cls": "EXOTROPIA",
+   "raw": {
+    "src": "/images/denoise/exotropia-2-raw.jpg",
+    "width": 474,
+    "height": 118
+   },
+   "denoised": {
+    "src": "/images/denoise/exotropia-2-denoised.jpg",
+    "width": 640,
+    "height": 159
+   }
+  },
+  {
+   "cls": "HYPOTROPIA",
+   "raw": {
+    "src": "/images/denoise/hypotropia-2-raw.jpg",
+    "width": 679,
+    "height": 166
+   },
+   "denoised": {
+    "src": "/images/denoise/hypotropia-2-denoised.jpg",
+    "width": 640,
+    "height": 156
+   }
+  }
+ ],
+ "test": [
+  {
+   "file": "ESOTROPIA/4.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/4.jpg",
+   "width": 640,
+   "height": 175
+  },
+  {
+   "file": "ESOTROPIA/6.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/6.jpg",
+   "width": 640,
+   "height": 276
+  },
+  {
+   "file": "ESOTROPIA/8.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/8.jpg",
+   "width": 640,
+   "height": 217
+  },
+  {
+   "file": "ESOTROPIA/14.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/14.jpg",
+   "width": 640,
+   "height": 194
+  },
+  {
+   "file": "ESOTROPIA/26.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/26.jpg",
+   "width": 640,
+   "height": 191
+  },
+  {
+   "file": "ESOTROPIA/27.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/27.jpg",
+   "width": 640,
+   "height": 160
+  },
+  {
+   "file": "ESOTROPIA/40.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/40.jpg",
+   "width": 640,
+   "height": 181
+  },
+  {
+   "file": "ESOTROPIA/48.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/48.jpg",
+   "width": 640,
+   "height": 208
+  },
+  {
+   "file": "ESOTROPIA/54.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/54.jpg",
+   "width": 640,
+   "height": 175
+  },
+  {
+   "file": "ESOTROPIA/55.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/55.jpg",
+   "width": 640,
+   "height": 136
+  },
+  {
+   "file": "ESOTROPIA/57.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/57.jpg",
+   "width": 640,
+   "height": 231
+  },
+  {
+   "file": "ESOTROPIA/64.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/64.jpg",
+   "width": 640,
+   "height": 140
+  },
+  {
+   "file": "ESOTROPIA/70.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/70.jpg",
+   "width": 640,
+   "height": 244
+  },
+  {
+   "file": "ESOTROPIA/89.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/89.jpg",
+   "width": 640,
+   "height": 181
+  },
+  {
+   "file": "ESOTROPIA/99.jpg",
+   "cls": "ESOTROPIA",
+   "src": "/images/test/esotropia/99.jpg",
+   "width": 640,
+   "height": 205
+  },
+  {
+   "file": "EXOTROPIA/20.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/20.jpg",
+   "width": 640,
+   "height": 158
+  },
+  {
+   "file": "EXOTROPIA/30.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/30.jpg",
+   "width": 640,
+   "height": 192
+  },
+  {
+   "file": "EXOTROPIA/33.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/33.jpg",
+   "width": 640,
+   "height": 125
+  },
+  {
+   "file": "EXOTROPIA/36.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/36.jpg",
+   "width": 640,
+   "height": 144
+  },
+  {
+   "file": "EXOTROPIA/37.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/37.jpg",
+   "width": 640,
+   "height": 389
+  },
+  {
+   "file": "EXOTROPIA/55.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/55.jpg",
+   "width": 640,
+   "height": 156
+  },
+  {
+   "file": "EXOTROPIA/57.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/57.jpg",
+   "width": 640,
+   "height": 155
+  },
+  {
+   "file": "EXOTROPIA/64.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/64.jpg",
+   "width": 640,
+   "height": 205
+  },
+  {
+   "file": "EXOTROPIA/65.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/65.jpg",
+   "width": 640,
+   "height": 186
+  },
+  {
+   "file": "EXOTROPIA/68.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/68.jpg",
+   "width": 640,
+   "height": 230
+  },
+  {
+   "file": "EXOTROPIA/69.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/69.jpg",
+   "width": 640,
+   "height": 321
+  },
+  {
+   "file": "EXOTROPIA/81.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/81.jpg",
+   "width": 640,
+   "height": 177
+  },
+  {
+   "file": "EXOTROPIA/86.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/86.jpg",
+   "width": 640,
+   "height": 174
+  },
+  {
+   "file": "EXOTROPIA/95.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/95.jpg",
+   "width": 640,
+   "height": 156
+  },
+  {
+   "file": "EXOTROPIA/96.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/96.jpg",
+   "width": 640,
+   "height": 118
+  },
+  {
+   "file": "EXOTROPIA/99.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/99.jpg",
+   "width": 640,
+   "height": 272
+  },
+  {
+   "file": "EXOTROPIA/105.jpg",
+   "cls": "EXOTROPIA",
+   "src": "/images/test/exotropia/105.jpg",
+   "width": 640,
+   "height": 269
+  },
+  {
+   "file": "HYPERTROPIA/6.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/6.jpg",
+   "width": 640,
+   "height": 177
+  },
+  {
+   "file": "HYPERTROPIA/27.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/27.jpg",
+   "width": 640,
+   "height": 124
+  },
+  {
+   "file": "HYPERTROPIA/28.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/28.jpg",
+   "width": 640,
+   "height": 168
+  },
+  {
+   "file": "HYPERTROPIA/36.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/36.jpg",
+   "width": 640,
+   "height": 205
+  },
+  {
+   "file": "HYPERTROPIA/37.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/37.jpg",
+   "width": 640,
+   "height": 161
+  },
+  {
+   "file": "HYPERTROPIA/47.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/47.jpg",
+   "width": 640,
+   "height": 198
+  },
+  {
+   "file": "HYPERTROPIA/52.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/52.jpg",
+   "width": 640,
+   "height": 187
+  },
+  {
+   "file": "HYPERTROPIA/54.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/54.jpg",
+   "width": 640,
+   "height": 208
+  },
+  {
+   "file": "HYPERTROPIA/55.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/55.jpg",
+   "width": 640,
+   "height": 189
+  },
+  {
+   "file": "HYPERTROPIA/60.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/60.jpg",
+   "width": 640,
+   "height": 144
+  },
+  {
+   "file": "HYPERTROPIA/68.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/68.jpg",
+   "width": 640,
+   "height": 123
+  },
+  {
+   "file": "HYPERTROPIA/70.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/70.jpg",
+   "width": 640,
+   "height": 175
+  },
+  {
+   "file": "HYPERTROPIA/82.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/82.jpg",
+   "width": 640,
+   "height": 192
+  },
+  {
+   "file": "HYPERTROPIA/87.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/87.jpg",
+   "width": 640,
+   "height": 144
+  },
+  {
+   "file": "HYPERTROPIA/89.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/89.jpg",
+   "width": 640,
+   "height": 218
+  },
+  {
+   "file": "HYPERTROPIA/98.jpg",
+   "cls": "HYPERTROPIA",
+   "src": "/images/test/hypertropia/98.jpg",
+   "width": 640,
+   "height": 154
+  },
+  {
+   "file": "HYPOTROPIA/2.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/2.jpg",
+   "width": 640,
+   "height": 156
+  },
+  {
+   "file": "HYPOTROPIA/5.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/5.jpg",
+   "width": 640,
+   "height": 248
+  },
+  {
+   "file": "HYPOTROPIA/11.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/11.jpg",
+   "width": 640,
+   "height": 149
+  },
+  {
+   "file": "HYPOTROPIA/26.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/26.jpg",
+   "width": 640,
+   "height": 200
+  },
+  {
+   "file": "HYPOTROPIA/27.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/27.jpg",
+   "width": 640,
+   "height": 211
+  },
+  {
+   "file": "HYPOTROPIA/31.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/31.jpg",
+   "width": 640,
+   "height": 183
+  },
+  {
+   "file": "HYPOTROPIA/42.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/42.jpg",
+   "width": 640,
+   "height": 178
+  },
+  {
+   "file": "HYPOTROPIA/46.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/46.jpg",
+   "width": 640,
+   "height": 177
+  },
+  {
+   "file": "HYPOTROPIA/54.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/54.jpg",
+   "width": 640,
+   "height": 226
+  },
+  {
+   "file": "HYPOTROPIA/55.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/55.jpg",
+   "width": 640,
+   "height": 260
+  },
+  {
+   "file": "HYPOTROPIA/57(1).jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/57-1.jpg",
+   "width": 640,
+   "height": 206
+  },
+  {
+   "file": "HYPOTROPIA/72.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/72.jpg",
+   "width": 640,
+   "height": 154
+  },
+  {
+   "file": "HYPOTROPIA/77.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/77.jpg",
+   "width": 640,
+   "height": 148
+  },
+  {
+   "file": "HYPOTROPIA/80.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/80.jpg",
+   "width": 640,
+   "height": 237
+  },
+  {
+   "file": "HYPOTROPIA/87.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/87.jpg",
+   "width": 640,
+   "height": 234
+  },
+  {
+   "file": "HYPOTROPIA/92.jpg",
+   "cls": "HYPOTROPIA",
+   "src": "/images/test/hypotropia/92.jpg",
+   "width": 640,
+   "height": 243
+  },
+  {
+   "file": "NORMAL/6.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/6.jpg",
+   "width": 640,
+   "height": 172
+  },
+  {
+   "file": "NORMAL/27.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/27.jpg",
+   "width": 640,
+   "height": 139
+  },
+  {
+   "file": "NORMAL/28.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/28.jpg",
+   "width": 640,
+   "height": 224
+  },
+  {
+   "file": "NORMAL/30.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/30.jpg",
+   "width": 640,
+   "height": 211
+  },
+  {
+   "file": "NORMAL/52.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/52.jpg",
+   "width": 640,
+   "height": 253
+  },
+  {
+   "file": "NORMAL/56.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/56.jpg",
+   "width": 640,
+   "height": 166
+  },
+  {
+   "file": "NORMAL/60.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/60.jpg",
+   "width": 640,
+   "height": 298
+  },
+  {
+   "file": "NORMAL/66.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/66.jpg",
+   "width": 640,
+   "height": 256
+  },
+  {
+   "file": "NORMAL/69.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/69.jpg",
+   "width": 640,
+   "height": 303
+  },
+  {
+   "file": "NORMAL/71.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/71.jpg",
+   "width": 640,
+   "height": 232
+  },
+  {
+   "file": "NORMAL/75.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/75.jpg",
+   "width": 640,
+   "height": 237
+  },
+  {
+   "file": "NORMAL/76.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/76.jpg",
+   "width": 640,
+   "height": 263
+  },
+  {
+   "file": "NORMAL/77.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/77.jpg",
+   "width": 640,
+   "height": 270
+  },
+  {
+   "file": "NORMAL/92.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/92.jpg",
+   "width": 640,
+   "height": 158
+  },
+  {
+   "file": "NORMAL/96.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/96.jpg",
+   "width": 640,
+   "height": 333
+  },
+  {
+   "file": "NORMAL/100.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/100.jpg",
+   "width": 640,
+   "height": 233
+  },
+  {
+   "file": "NORMAL/111.jpg",
+   "cls": "NORMAL",
+   "src": "/images/test/normal/111.jpg",
+   "width": 640,
+   "height": 177
+  }
+ ],
+ "counts": {
+  "ESOTROPIA": {
+   "raw": 100,
+   "train": 70,
+   "val": 15,
+   "test": 15,
+   "augmented": 700
+  },
+  "EXOTROPIA": {
+   "raw": 104,
+   "train": 72,
+   "val": 15,
+   "test": 17,
+   "augmented": 720
+  },
+  "HYPERTROPIA": {
+   "raw": 102,
+   "train": 71,
+   "val": 15,
+   "test": 16,
+   "augmented": 710
+  },
+  "HYPOTROPIA": {
+   "raw": 101,
+   "train": 70,
+   "val": 15,
+   "test": 16,
+   "augmented": 700
+  },
+  "NORMAL": {
+   "raw": 110,
+   "train": 77,
+   "val": 16,
+   "test": 17,
+   "augmented": 770
+  }
+ }
+}

@@ -7,11 +7,11 @@ Deep learning framework that classifies strabismus (ocular misalignment) from ey
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-**TODO:** screenshot/GIF of the inference demo goes here once it exists (`assets/`).
+![The site: two eyes under a penlight, one drifting through each form of strabismus](assets/site-hero.png)
 
-## Live Demo
+## Website
 
-**TODO** — not deployed yet. See [Status](#status) below.
+**[strabismus.madhavarora.com](https://strabismus.madhavarora.com)** (launching soon) walks through the whole pipeline interactively. Every box in the paper's flowchart opens its own page: the real images at each step, the models and their published results, and a demo gallery of test-set predictions. The site lives in [`web/`](web/).
 
 ## Problem
 
@@ -46,15 +46,14 @@ EfficientNetB7 is the clear winner. Note: there's no fixed random seed anywhere 
 
 ## Status
 
-This is a research prototype, not a deployed product.
-
 - The paper was presented at **AIMLA 2025** (see `paper/aimla_2025_certificate.pdf`).
-- No trained model weights currently exist — models will be retrained and saved when the inference API/UI is built.
-- There is no live demo yet.
+- The four models are being retrained with fixed seeds (3 seeds each, reproducing the notebooks exactly and also with known bugs corrected) using the scripts in [`training/`](training/). Weights will be published once the runs finish.
+- The website is built; its demo gallery shows placeholder predictions until the retrained model's outputs are imported.
 
 ## Tech Stack
 
-Python, TensorFlow/Keras, OpenCV, `albumentations`, scikit-learn, matplotlib/seaborn. Training ran across a local machine (NVIDIA RTX 3070 Ti) and Google Colab.
+- **Models:** Python, TensorFlow/Keras, OpenCV, `albumentations`, scikit-learn. The original runs used a local NVIDIA RTX 3070 Ti and Google Colab; retraining runs on 8× A100.
+- **Website:** Next.js 16 (App Router, statically generated), React view transitions, Tailwind CSS v4, deployed on Vercel.
 
 ## Repository Structure
 
@@ -63,7 +62,9 @@ notebooks/
 ├── pipeline/     # denoise/resize → split → augment
 ├── models/       # the 4 working models + the incomplete ViT attempt
 └── archive/      # earlier draft notebooks, kept for history
-data/             # not published — see data/README.md
+training/         # seeded retraining scripts (see training/prompt.md for the server runbook)
+web/              # the website (Next.js)
+data/             # dataset folders, gitignored — download link in data/README.md
 paper/            # paper draft text, published PDF, presentation, conference certificate
 assets/           # README images
 ```
@@ -78,14 +79,14 @@ Dependency versions are inferred from the notebooks' imports (no environment fil
 
 ## Data
 
-The dataset isn't published in this repo (photos of real people, redistribution rights unconfirmed). See [`data/README.md`](data/README.md) for the expected folder layout and how to regenerate it with your own images.
+The 517 photos were handpicked from open-source sites, cropped to the eyes and labelled in CVAT. They are available for research use on [Google Drive](https://drive.google.com/drive/folders/1pU6S3G0Rm6ZIIHgLfFS3Q_aARTXCGxxk) rather than in this repo; if a photo is yours and you want it removed, open an issue. See [`data/README.md`](data/README.md) for the folder layout.
 
 **Before running any notebook**, update its hardcoded dataset paths — they currently point at the original development machines (`E:/Projects/Strabismus/...` locally, `/content/drive/MyDrive/Strabismus_New/...` on Colab).
 
 ## Known Limitations
 
-- No trained model weights currently saved (see [Status](#status))
-- No fixed random seed — split and training results vary run to run
+- No trained model weights saved from the original runs (retraining in progress, see [Status](#status))
+- No fixed random seed in the original notebooks — split and training results vary run to run (the retraining scripts fix this)
 - The Vision Transformer attempt (`notebooks/models/vit_b16_attempt.ipynb`) never trained — it requires TensorFlow ≥2.11, and this project is pinned to 2.10.0
 - A MobileNetV2 transfer-learning attempt (`notebooks/models/mobilenetv2_transfer.ipynb`) crashed on a GPU/cuDNN error partway through training and was never retried
 

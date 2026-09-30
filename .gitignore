@@ -35,15 +35,26 @@ node_modules/
 *.keras
 *.pt
 *.pth
+*.onnx
 checkpoints/
+
+# Training outputs (weights and per-run files stay local; the website copies what it needs)
+training/runs/
+training/runs_smoke/
+training/site_artifacts/
+saved_model/
 
 # Project-specific: personal study notes, not public docs
 prep/
 
-# Project-specific: dataset is not published (size + unconfirmed image redistribution rights)
-# see data/README.md for how to obtain/regenerate it
+# Project-specific: dataset folders are large; they are shared on Google Drive (see data/README.md)
 data/*
 !data/README.md
 
 # Project-specific: literature review spreadsheet has informal working notes mixed in
 paper/literature_review.xlsx
+
+# Local browser-testing artifacts
+.playwright-mcp/
+
+training/

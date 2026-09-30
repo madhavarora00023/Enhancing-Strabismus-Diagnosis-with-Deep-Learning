@@ -1,23 +1,26 @@
 # Data
 
-The dataset itself is **not published in this repository** — the raw images are photos of real people sourced from public repositories (Kaggle, GitHub, and other online sources), and redistribution rights for those specific images haven't been confirmed. Everything below describes the folder structure the pipeline notebooks expect, so you can regenerate it locally.
+**Download:** [Google Drive](https://drive.google.com/drive/folders/1pU6S3G0Rm6ZIIHgLfFS3Q_aARTXCGxxk). The folders are kept out of git because of their size.
 
-## Folder layout (generated locally, gitignored)
+The 517 photos were handpicked from open-source sites (Kaggle, GitHub and other public repositories), cropped to the eye region and labelled in CVAT. They are shared for research use. If a photo is yours and you would like it removed, open an issue on this repository.
+
+## Folder layout (gitignored)
 
 | Folder | Contents | Produced by |
 |---|---|---|
-| `data/raw/` | 517 source images across 5 class folders (`ESOTROPIA`, `EXOTROPIA`, `HYPERTROPIA`, `HYPOTROPIA`, `NORMAL`) | Sourced manually — see note below |
-| `data/legacy_denoised/` | 5,170 images — an earlier, larger denoised set not used by the current pipeline | Superseded; kept for reference only |
-| `data/denoised/` | 517 images — denoised + aspect-ratio-preserving resize (640px longer side) of `data/raw/` | `notebooks/pipeline/01_denoise_resize.ipynb` |
+| `data/raw/` | 517 source images across 5 class folders (`ESOTROPIA`, `EXOTROPIA`, `HYPERTROPIA`, `HYPOTROPIA`, `NORMAL`) | Collected and labelled by hand |
+| `data/denoised/` | The same 517 images, denoised and resized so the longer side is 640 px | `notebooks/pipeline/01_denoise_resize.ipynb` |
 | `data/split/{train,val,test}/` | 70/15/15 split (360/76/81 images) of `data/denoised/` | `notebooks/pipeline/02_split.ipynb` |
-| `data/train_augmented/` | 3,600 images — 10x augmented version of `data/split/train/` only (val/test are never augmented) | `notebooks/pipeline/03_augment.ipynb` |
+| `data/train_augmented/` | 3,600 images: 10 versions of each training image (val/test are never augmented) | `notebooks/pipeline/03_augment.ipynb` |
+| `data/legacy_denoised/` | 5,170 images: all 517 photos augmented 10× *before* splitting. Not used by the final pipeline, because splitting after augmenting would put near-copies of test photos into training | An earlier iteration |
+
+## Known issue: duplicate photos
+
+Eight photos in `HYPOTROPIA` were saved twice (for example `55.jpg` and `55(1).jpg`, byte-identical). Two of those pairs ended up on opposite sides of the split, so 2 of the 81 test photos have an identical twin in training. `training/prepare_data.py` detects this, including resized, re-saved or mirrored near-copies, and every retraining run reports its test score both with and without those photos. The split itself is left exactly as used in the paper.
 
 ## Regenerating the dataset
 
-1. Collect your own set of labeled strabismus images into `data/raw/<CLASS_NAME>/`, using the five class names above.
-2. Run the three notebooks in `notebooks/pipeline/` in order (01 → 02 → 03).
-3. **Before running**: every pipeline notebook currently has hardcoded absolute paths from the original development machines (`E:/Projects/Strabismus/...` locally, `/content/drive/MyDrive/Strabismus_New/...` on Colab). Update these to point at this repo's `data/` folder before running.
+1. Put labelled images into `data/raw/<CLASS_NAME>/`, using the five class names above.
+2. Run the three notebooks in `notebooks/pipeline/` in order (01 → 02 → 03). They still contain the original machines' absolute paths (`E:/Projects/Strabismus/...` locally, `/content/drive/MyDrive/Strabismus_New/...` on Colab); point them at this repo's `data/` folder first.
 
-## A note on the dataset used in the published results
-
-The results reported in `paper/paper.pdf` and reproduced in `prep/deepdive.md` came from a 517-image dataset assembled from public sources for academic research use. If you're trying to reproduce those specific numbers, be aware there was no fixed random seed anywhere in the split/training code — exact numbers will vary run to run, sometimes by several points (see `prep/deepdive.md` for a documented example with the ResNet50 run).
+The original notebooks set no random seed, so a fresh split will differ from the one used in the paper. To reproduce the paper's split, download the `data/split/` folders from Google Drive instead of regenerating them.

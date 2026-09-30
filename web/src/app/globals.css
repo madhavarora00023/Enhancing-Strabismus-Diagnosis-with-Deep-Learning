@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --color-room: #0e1726;
+  --color-room-2: #17243a;
+  --color-room-line: #2a3a55;
+  --color-penlight: #fff3d1;
+  --color-ink: #14233a;
+  --color-ink-soft: #4a5a70;
+  --color-paper: #f2f6f9;
+  --color-card: #ffffff;
+  --color-rule: #c9d6e2;
+  --color-flow: #dcf0fa;
+  --color-flow-line: #1f2d40;
+  --color-amber: #c8841f;
+  --color-amber-ink: #8e5a0c;
+  --color-amber-glow: #e9a94b;
+
+  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-atkinson), system-ui, sans-serif;
+  --font-mono: var(--font-atkinson-mono), ui-monospace, monospace;
+
+  --text-hero: clamp(2.5rem, 1.6rem + 4.2vw, 5rem);
+  --text-hero--line-height: 1.02;
+  --text-title: clamp(2.1rem, 1.5rem + 2.6vw, 3.5rem);
+  --text-title--line-height: 1.05;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.prose-step p {
+  max-width: 62ch;
+  line-height: 1.65;
+}
+.prose-step p + p {
+  margin-top: 1rem;
+}
+
+/* Hirschberg hero: one 16 s loop, five 3.2 s poses (normal, eso, exo, hyper, hypo). */
+@keyframes deviate {
+  0%, 20% { transform: translate(0, 0); }
+  24.4%, 36.25% { transform: translate(-24px, 0); }
+  40% { transform: translate(0, 0); }
+  44.4%, 56.25% { transform: translate(24px, 0); }
+  60% { transform: translate(0, 0); }
+  64.4%, 76.25% { transform: translate(0, -17px); }
+  80% { transform: translate(0, 0); }
+  84.4%, 96.25% { transform: translate(0, 17px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes blink {
+  0%, 8% { transform: translateY(0); }
+  8.7% { transform: translateY(170px); }
+  9.4%, 68% { transform: translateY(0); }
+  68.7% { transform: translateY(170px); }
+  69.4%, 100% { transform: translateY(0); }
+}
+@keyframes pose-label {
+  0% { opacity: 0; transform: translateY(6px); }
+  3%, 17% { opacity: 1; transform: translateY(0); }
+  20%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes pose-tick {
+  0% { opacity: 0.25; }
+  3%, 17% { opacity: 1; }
+  20%, 100% { opacity: 0.25; }
+}
+.hero-iris { animation: deviate 16s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+.hero-lid { animation: blink 16s ease-in-out infinite; }
+.hero-label { animation: pose-label 16s ease-in-out infinite both; }
+.hero-tick { animation: pose-tick 16s ease-in-out infinite both; }
+
+/* Data collection: a crop box closes in on the eyes, the rest dims, a CVAT-style label appears (8 s loop). */
+@keyframes crop-box {
+  0%, 12% { transform: scale(1.5, 7); opacity: 1; }
+  40%, 92% { transform: scale(1, 1); opacity: 1; }
+  100% { transform: scale(1, 1); opacity: 0; }
+}
+@keyframes crop-dim {
+  0%, 40% { opacity: 0; }
+  52%, 92% { opacity: 0.72; }
+  100% { opacity: 0; }
+}
+@keyframes crop-label {
+  0%, 52% { opacity: 0; transform: translateY(6px); }
+  60%, 92% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; }
+}
+@keyframes orient-turn {
+  0%, 18% { transform: rotate(-14deg) scale(0.86); }
+  46%, 88% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(-14deg) scale(0.86); }
+}
+.crop-box { transform-box: fill-box; transform-origin: center; animation: crop-box 8s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+.crop-dim { animation: crop-dim 8s ease-in-out infinite; }
+.crop-label { animation: crop-label 8s ease-out infinite; }
+.orient-turn { animation: orient-turn 6s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .crop-box, .crop-dim, .crop-label, .orient-turn { animation: none; }
+  .crop-dim { opacity: 0.72; }
+  .hero-iris, .hero-lid { animation: none; }
+  .hero-label, .hero-tick { animation: none; opacity: 1; }
+  .hero-label:not(:first-child) { display: none; }
+}
+
+/* Page transitions (React <ViewTransition>): the clicked flowchart box morphs into the step header. */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  35% { filter: blur(2px); }
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+::view-transition-old(.nav-forward) {
+  --slide-offset: -48px;
+  animation: 150ms ease-in both vt-fade reverse, 380ms ease-in-out both vt-slide reverse;
+}
+::view-transition-new(.nav-forward) {
+  --slide-offset: 48px;
+  animation: 210ms ease-out 150ms both vt-fade, 380ms ease-in-out both vt-slide;
+}
+::view-transition-old(.nav-back) {
+  --slide-offset: 48px;
+  animation: 150ms ease-in both vt-fade reverse, 380ms ease-in-out both vt-slide reverse;
+}
+::view-transition-new(.nav-back) {
+  --slide-offset: -48px;
+  animation: 210ms ease-out 150ms both vt-fade, 380ms ease-in-out both vt-slide;
+}
+@keyframes vt-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes vt-slide {
+  from { translate: var(--slide-offset); }
+  to { translate: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
